@@ -89,5 +89,12 @@ namespace TestWebApp.Models
         [Required]
         [Display(Name = "メールアドレス")]
         public string MailAddress { get; set; }
+
+        /// <summary>
+        /// ホームページURL
+        /// </summary>
+        [StringLength(60)]
+        [Display(Name = "ホームページURL")]
+        public string HomePageUrl { get; set; }
     }
 }
