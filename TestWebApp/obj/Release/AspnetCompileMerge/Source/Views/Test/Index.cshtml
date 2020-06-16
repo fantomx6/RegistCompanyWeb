@@ -1,0 +1,54 @@
+﻿@model TestWebApp.Models.Test
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>会社情報登録</title>
+    <link href=" @Url.Content("~/Content/Style.css?vesion=1.1") " rel="stylesheet" type="text/css" />
+    <link href=" @Url.Content("~/Content/Site.css?vesion=1.1") " rel="stylesheet" type="text/css" />
+    <script src="@Url.Content("~/Scripts/jquery-3.3.1.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+</head>
+<body>
+    @using (Html.BeginForm("Regist","Test"))
+    {
+    <div id="form">
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(false)
+        <p class="form-title">会社情報登録</p>
+            <p>会社名</p>
+            <p class="regist-item">
+                @Html.TextBoxFor(model => model.CompanyName, new { @Class = "text-type1" })
+            </p>
+            <p>フリガナ</p>
+            <p class="regist-item">@Html.TextBoxFor(model => model.CompanyPhonetic, new { @Class = "text-type1" })</p>
+            <p>部署</p>
+            <p class="regist-item">
+                @Html.TextBoxFor(model => model.DepartmentCode, new { @Class = "text-type3" })
+                @Html.TextBoxFor(model => model.DepartmentName, new { @Class = "text-type1" })
+            </p>
+            <p>郵便番号</p>
+            <p class="regist-item">@Html.TextBoxFor(model => model.PostCode, new { @Class = "text-type1" })</p>
+            <p>住所</p>
+            <p class="regist-item">
+                @Html.TextBoxFor(model => model.Prefectures, new { @Class = "text-type3" })
+                @Html.TextBoxFor(model => model.MailAddress, new { @Class = "text-type3" })
+                @Html.TextBoxFor(model => model.Block, new { @Class = "text-type3" })
+            </p>
+            <p>電話番号</p>
+            <p class="regist-item">@Html.TextBoxFor(model => model.PhoneNumber, new { @Class = "text-type1" })</p>
+            <p>FAX番号</p>
+            <p class="regist-item">@Html.TextBoxFor(model => model.FaxNumber, new { @Class = "text-type1" })</p>
+            <p>メールアドレス</p>
+            <p class="regist-item">@Html.TextBoxFor(model => model.MailAddress, new { @Class = "text-type1" })</p>
+            <p class="submit"><input type="submit" value="次へ" /></p>
+    </div>
+    }
+    </body>
+</html>

@@ -1,0 +1,48 @@
+﻿@model TestWebApp.Models.Test
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>会社情報登録</title>
+    <link href=" @Url.Content("~/Content/Style.css?ver=1.0.1") " rel="stylesheet" type="text/css" />
+    <link href=" @Url.Content("~/Content/Site.css?ver=1.0.1") " rel="stylesheet" type="text/css" />
+</head>
+<body>
+    @using (Html.BeginForm("Regist","Test"))
+    {
+    <div id="form">
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(false)
+        <p class="form-title">会社情報登録確認</p>
+            <p class="item-name">会社名</p>
+            <p class="confirm-item">@Html.DisplayFor(model => model.CompanyName)</p>
+            <p class="item-name">フリガナ</p>
+            <p class="confirm-item">@Html.DisplayFor(model => model.CompanyPhonetic)</p>
+            <p class="item-name">部署コード</p>
+            <p class="confirm-item">@Html.DisplayFor(model => model.DepartmentCode)</p>
+            <p class="item-name">部署名</p>
+            <p class="confirm-item">@Html.DisplayFor(model => model.DepartmentName)</p>
+            <p class="item-name">郵便番号</p>
+            <p class="confirm-item">@Html.DisplayFor(model => model.PostCode)</p>
+            <p class="item-name">都道府県</p>
+            <p class="confirm-item">@Html.DisplayFor(model => model.Prefectures)</p>
+            <p class="item-name">市区町村</p>
+            <p class="confirm-item">@Html.DisplayFor(model => model.Municipalities)</p>
+            <p class="item-name">番地</p>
+            <p class="confirm-item">@Html.DisplayFor(model => model.Block)</p>
+            <p class="item-name">電話番号</p>
+            <p class="confirm-item">@Html.DisplayFor(model => model.PhoneNumber)</p>
+            <p class="item-name">FAX番号</p>
+            <p class="confirm-item">@Html.DisplayFor(model => model.FaxNumber)</p>
+            <p class="item-name">メールアドレス</p>
+            <p class="confirm-item">@Html.DisplayFor(model => model.MailAddress)</p>
+            <p class="submit"><input type="submit" value="登録" /></p>
+    </div>
+    }
+    </body>
+</html>
